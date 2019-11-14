@@ -9,12 +9,12 @@
 #include"malloc.h"
 #include"stdlib.h"
 #include <stdio.h>
-typedef int Status;  //StatusÊÇº¯ÊıµÄÀàĞÍ£¬ÆäÖµÊÇº¯Êı½á¹û×´Ì¬´úÂë
+typedef int Status;  //Statusæ˜¯å‡½æ•°çš„ç±»å‹ï¼Œå…¶å€¼æ˜¯å‡½æ•°ç»“æœçŠ¶æ€ä»£ç 
 
 typedef struct LNode
 {
-	int coe;  //ÏµÊı coefficient
-	int exp;  // Ö¸Êı exponential
+	int coe;  //ç³»æ•° coefficient
+	int exp;  // æŒ‡æ•° exponential
 	struct LNode *next;
 }LNode,*LinkList;
 
@@ -30,7 +30,7 @@ int main(void)
 {
 	LinkList L1;
 	int n1;	
-	printf("ÇëÊäÈë¶àÏîÊ½ÏîÊı£º");
+	printf("è¯·è¾“å…¥å¤šé¡¹å¼é¡¹æ•°ï¼š");
 	scanf("%d",&n1);
 	
 	Create_L(L1,n1);  
@@ -41,11 +41,11 @@ int main(void)
 	
 	LinkList La,Lb;
 	int na,nb;
-	printf("\n\n*Çó2¸öÒ»Ôª¶àÏîÊ½µÄºÍ¶àÏîÊ½*\n");
-	printf("ÇëÊäÈëµÚ1¸ö¶àÏîÊ½ÏîÊı£º");
+	printf("\n\n*æ±‚2ä¸ªä¸€å…ƒå¤šé¡¹å¼çš„å’Œå¤šé¡¹å¼*\n");
+	printf("è¯·è¾“å…¥ç¬¬1ä¸ªå¤šé¡¹å¼é¡¹æ•°ï¼š");
 	scanf("%d",&na);
 	Create_L(La,na);  
-	printf("\nÇëÊäÈëµÚ2¸ö¶àÏîÊ½ÏîÊı£º");
+	printf("\nè¯·è¾“å…¥ç¬¬2ä¸ªå¤šé¡¹å¼é¡¹æ•°ï¼š");
 	scanf("%d",&nb);
 	Create_L(Lb,nb);  
 	
@@ -66,8 +66,8 @@ Status Create_L(LinkList &L,int n)
 	L->coe=0,L->exp=0;  L->next=NULL;
 	s=L;
 	
-//	int coe[3]={1,2,3},exp[3]={1,2,3}; //²âÊÔÓÃÊı¾İ 
-//	for(i=0;i<3;i++)				// ²âÊÔÓÃ³ÌĞò 
+//	int coe[3]={1,2,3},exp[3]={1,2,3}; //æµ‹è¯•ç”¨æ•°æ® 
+//	for(i=0;i<3;i++)				// æµ‹è¯•ç”¨ç¨‹åº 
 //	{
 //		p=(LinkList)malloc(sizeof(LNode));
 //		p->coe=coe[i];
@@ -77,13 +77,13 @@ Status Create_L(LinkList &L,int n)
 //		s=p;
 //	}	
 	
-	printf("\nÇë°´Ö¸ÊıÉıĞòÊäÈëÊı¾İ");	 
+	printf("\nè¯·æŒ‰æŒ‡æ•°å‡åºè¾“å…¥æ•°æ®");	 
 	for(i=1;i<=n;i++)
 	{
 		p=(LinkList)malloc(sizeof(LNode));
-		printf("\n  ÇëÊäÈëµÚ%dÏîÏµÊı(ÕûÊı)£º",i);
+		printf("\n  è¯·è¾“å…¥ç¬¬%dé¡¹ç³»æ•°(æ•´æ•°)ï¼š",i);
 		scanf("%d",&p->coe);
-		printf("  ÇëÊäÈëµÚ%dÏîÖ¸Êı(ÕûÊı)£º",i);
+		printf("  è¯·è¾“å…¥ç¬¬%dé¡¹æŒ‡æ•°(æ•´æ•°)ï¼š",i);
 		scanf("%d",&p->exp);
 		p->next=NULL;
 		s->next=p;
@@ -98,12 +98,12 @@ void Print_L(LinkList L)
 	LinkList p=L;  int i=1;
 	p=p->next;
 	
-	printf("\n*ÏÖÔÚµÄ¶àÏîÊ½¸÷ÏîÊı¾İÈçÏÂ*"); 
+	printf("\n*ç°åœ¨çš„å¤šé¡¹å¼å„é¡¹æ•°æ®å¦‚ä¸‹*"); 
 		 
 	while(p)
 	{
-		printf("\nµÚ%dÏîÏµÊıÎª£º%d",i,p->coe);
-		printf("    µÚ%dÏîÖ¸ÊıÎª£º%d",i,p->exp);
+		printf("\nç¬¬%dé¡¹ç³»æ•°ä¸ºï¼š%d",i,p->coe);
+		printf("    ç¬¬%dé¡¹æŒ‡æ•°ä¸ºï¼š%d",i,p->exp);
 		p=p->next;  i++;
 	}	
 }
@@ -112,20 +112,20 @@ void Reverse_L(LinkList &L,int n)
 {
 	int i,j;
 	
-	printf("\n\n*¾ÍµØÄæÖÃ¶àÏîÊ½*\n"); 
+	printf("\n\n*å°±åœ°é€†ç½®å¤šé¡¹å¼*\n"); 
 	
 	for(i=0;i<n-1;i++)
 	{
 		LinkList p=L->next,q=L;
 		
-		for(j=0;j<n-2;j++)	//ÕÒµ½±íÎ²½ÚµãµÄÇ°Ò»½ÚµãµÄÖ¸Õë 
+		for(j=0;j<n-2;j++)	//æ‰¾åˆ°è¡¨å°¾èŠ‚ç‚¹çš„å‰ä¸€èŠ‚ç‚¹çš„æŒ‡é’ˆ 
 			p=p->next;
-		for(j=0;j<i;j++)	//ÕÒµ½Òª²åÈëÎ»ÖÃ½ÚµãµÄÇ°Ò»½ÚµãµÄÖ¸Õë 
+		for(j=0;j<i;j++)	//æ‰¾åˆ°è¦æ’å…¥ä½ç½®èŠ‚ç‚¹çš„å‰ä¸€èŠ‚ç‚¹çš„æŒ‡é’ˆ 
 			q=q->next;
 		
-		p->next->next=q->next;	 //Î²½ÚµãÖĞnextÖ¸Ïò²åÈëÎ»ÖÃ½ÚµãµÄºó¼Ì 
-		q->next=p->next;		//²åÈëÎ»ÖÃ½ÚµãµÄÇ°Ò»½ÚµãµÄÖ¸ÕëÖ¸ÏòÎ²½Úµã 
-		p->next=NULL;		//Î²½ÚµãµÄÇ°Ò»½Úµã±äÎªÎ²½Úµã£¬nextÖ¸Ïò¿Õ		
+		p->next->next=q->next;	 //å°¾èŠ‚ç‚¹ä¸­nextæŒ‡å‘æ’å…¥ä½ç½®èŠ‚ç‚¹çš„åç»§ 
+		q->next=p->next;		//æ’å…¥ä½ç½®èŠ‚ç‚¹çš„å‰ä¸€èŠ‚ç‚¹çš„æŒ‡é’ˆæŒ‡å‘å°¾èŠ‚ç‚¹ 
+		p->next=NULL;		//å°¾èŠ‚ç‚¹çš„å‰ä¸€èŠ‚ç‚¹å˜ä¸ºå°¾èŠ‚ç‚¹ï¼ŒnextæŒ‡å‘ç©º		
 	}
 }
 
@@ -133,25 +133,25 @@ void Calculate_L(LinkList &L,int n)
 {
 	int i,j;
 	int x,result=0,exp_result=1;
-	printf("\n\n*¶àÏîÊ½ÇóÖµ*\nÇëÊäÈë×Ô±äÁ¿µÄÖµ(ÕûÊı)£º");
+	printf("\n\n*å¤šé¡¹å¼æ±‚å€¼*\nè¯·è¾“å…¥è‡ªå˜é‡çš„å€¼(æ•´æ•°)ï¼š");
 	scanf("%d",&x);
 	
 	for(i=1;i<=n;i++)
 	{
-		LinkList p=L->next; //p³õÊ¼Ö¸ÏòµÚ1Ïî 
-		for(j=1;j<i;j++)	//pÖ¸ÏòµÚiÏî	
+		LinkList p=L->next; //påˆå§‹æŒ‡å‘ç¬¬1é¡¹ 
+		for(j=1;j<i;j++)	//pæŒ‡å‘ç¬¬ié¡¹	
 			p=p->next;
 		for(j=0,exp_result=1;j<p->exp;j++)	
 			exp_result*=x;
 		result+=(p->coe)*exp_result;			
 	}
-	printf("¶àÏîÊ½ÖµÎª:%d",result); 
+	printf("å¤šé¡¹å¼å€¼ä¸º:%d",result); 
 }
 
 void AddPolyn(LinkList &ha,LinkList &hb)
 {
 	LinkList qa,qb,u,pre;  
-	int x;  //ÏµÊı¼Ó¼õ½á¹û 
+	int x;  //ç³»æ•°åŠ å‡ç»“æœ 
 	
 	qa=ha->next,qb=hb->next;  pre=ha;
 	
